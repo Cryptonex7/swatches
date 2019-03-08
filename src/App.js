@@ -31,6 +31,7 @@ class App extends Component {
   }
   componentDidMount(){
     initItems(this.callback);
+    console.log('PWA');
   }
   callback = (data) =>{
     this.setState({
