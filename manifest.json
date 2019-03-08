@@ -26,7 +26,7 @@
       "src": "./favicon/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/x-icon"
-    },
+    }
   ],
   "start_url": "https://atharvu1.github.io/swatches/",
   "display": "standalone",
