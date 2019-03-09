@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-
 import MainContainer from './Component/MainContainer';
 
 function initItems(cb) {
@@ -43,15 +42,11 @@ class App extends Component {
   newCallback = (data) =>{
     var newSwatch=[...this.state.swatches];
     newSwatch.push(data);
-    /*this.setState({
-      swatches:[...newSwatch]
-    })*/
     this.callback(newSwatch);
-    //console.log('newCallback',this.state.swatches);
   }
   render() {
     return(
-           <MainContainer className='swatch' swatches={this.state.swatches} newItem={newItem} newCallback={this.newCallback}/>
+           <MainContainer swatches={this.state.swatches} newItem={newItem} newCallback={this.newCallback}/>
     );
     
 

@@ -5,7 +5,6 @@ const CardList = ({swatches}) =>{
 	      <div>
 	      	{
 	      		swatches.map((swatch,i) => {
-	      			//console.log('cardlist',swatch);
 	      			const styleObj={
 	      				background:swatch.color
 	      			}

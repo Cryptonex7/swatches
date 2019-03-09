@@ -14,9 +14,7 @@ const Container = ({swatches,newItem,newCallback}) => {
       return (
         <div className='swatch'>
           <SearchBox newItem={newItem} newCallback={newCallback}/>
-	       	{/*console.log(swatches)*/}
 	      <CardList swatches={swatches}/>
-          {/*console.log(this.state.swatches)*/}
         </div>
       );
     }
