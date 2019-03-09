@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
-import Container from './Component/Container';
+
+import MainContainer from './Component/MainContainer';
 
 function initItems(cb) {
     const data = [
@@ -49,21 +50,11 @@ class App extends Component {
     //console.log('newCallback',this.state.swatches);
   }
   render() {
-    if(!this.state.swatches.length){
-      return(
-             <div>
-              Loading...
-             </div>
-      )
-    }
-    else{
-      return (
-        <div className="App">
-          <Container swatches={this.state.swatches} newItem={newItem} newCallback={this.newCallback}/>
-          {/*console.log(this.state.swatches)*/}
-        </div>
-      );
-    }
+    return(
+           <MainContainer className='swatch' swatches={this.state.swatches} newItem={newItem} newCallback={this.newCallback}/>
+    );
+    
+
   }
 }
 
