@@ -6,7 +6,7 @@ const Container = ({swatches,newItem,newCallback}) => {
 	if(!swatches.length){
       return(
              <div className='loading swatch'>
-              Loading...
+              Loading....
              </div>
       )
     }

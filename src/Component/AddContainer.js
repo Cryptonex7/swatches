@@ -101,7 +101,7 @@ class AddContainer extends React.Component{
   render(){
     if(!this.state.color1 && !this.state.color2){
       return(
-             <div className='loading swatch'>Loading...</div>
+             <div className='loading swatch'>Loading....</div>
       )
     }
     else{
