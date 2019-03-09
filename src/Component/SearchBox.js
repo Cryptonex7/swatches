@@ -1,6 +1,5 @@
 import React from 'react';
 import '../index.css';
-//let isAHexCode=false;
 let regex=/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 
 class SearchBox extends React.Component{	
