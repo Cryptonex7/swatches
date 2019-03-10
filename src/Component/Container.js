@@ -14,7 +14,7 @@ const Container = ({swatches,newItem,newCallback}) => {
       return (
         <div className='swatch'>
           <SearchBox newItem={newItem} newCallback={newCallback}/>
-	      <CardList swatches={swatches}/>
+	        <CardList swatches={swatches}/>
         </div>
       );
     }

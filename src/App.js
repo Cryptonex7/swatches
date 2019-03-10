@@ -43,6 +43,7 @@ class App extends Component {
     var newSwatch=[...this.state.swatches];
     newSwatch.push(data);
     this.callback(newSwatch);
+    console.log('Add color 3');
   }
   render() {
     return(
