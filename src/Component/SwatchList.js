@@ -43,7 +43,6 @@ class SwachList extends React.Component{
     }
 
     const { color1, color2 }=this.props;
-    
     return(
       <div className="flex-center">
         <div className="card"  style={styleObj1} >{ (color1.length===4 || color1.length===7) && color1 }</div>
