@@ -1,7 +1,6 @@
 import React from 'react';
 import '../index.css';
 import SwatchList from './SwatchList';
-import Random from './Random';
 
 let item=0;
 let regex=/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
