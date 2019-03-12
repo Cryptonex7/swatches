@@ -1,9 +1,7 @@
 import React from 'react';
-import { setColor3, fetchAndSetUser } from '../reducers'
-
 import '../index.css';
 import { connect } from 'react-redux';
-import { setColor } from '../action';
+import { setColor3 } from '../action';
 
 
 const mapStateToProps = (state) => {
@@ -17,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-	  addColor: () => dispatch(setColor())
+	  addColor: (payload) => dispatch(setColor3(payload))
   }
 }
 

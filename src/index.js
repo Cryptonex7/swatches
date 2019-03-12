@@ -5,8 +5,8 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import * as serviceWorker from './serviceWorker';
-import { setColor3 } from  '../src/reducers'; 
-const store = createStore(setColor3);
+import { setColor } from  '../src/reducers'; 
+const store = createStore(setColor);
 
 ReactDOM.render(
             <Provider store={store}>

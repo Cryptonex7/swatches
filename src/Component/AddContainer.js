@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import SwatchList from './SwatchList';
 import { connect } from 'react-redux';
-import { setColor3 } from '../reducers';
+import { setColor1, setColor2, setColor3 } from '../action';
 
 let item=0;
 
@@ -23,7 +23,15 @@ const mapStateToProps = (state) => {
       color3: state.color3
     }
 }
-    
+ 
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    colorReducer1 : (payload) => dispatch(setColor1(payload)),
+    colorReducer2 : (payload) => dispatch(setColor2(payload)),
+    colorReducer3 : (payload) => dispatch(setColor3(payload))
+  }
+}
+
 const normalizeColor = (color) => {
   const tempSplit = color.split('');
   const copyColor = [];
@@ -38,51 +46,30 @@ const normalizeColor = (color) => {
 }
 class AddContainer extends React.Component{
 
-  constructor(){
-    super();
-    // this.state={
-    //   color1: '',
-    //   color2: '',
-    //   color3: ''
-    // }
-  }
-  
-  
-
   resultColor='';
   
   callback = (data) =>{
-    this.setState({
-      color1: data.color1,
-      color2: data.color2
-    });
+    this.props.colorReducer1(data.color1);
+    this.props.colorReducer2(data.color2);
   }
 
   changeColor1 = (event)=> {
     item=1;
     if(regex.test(event.target.value)){
-      this.setState({
-        color1:event.target.value
-      })
+     this.props.colorReducer1(event.target.value);
     }
     else{
-      this.setState({
-        color1:'',
-      })
+      this.props.colorReducer1('');
     }
   }
 
   changeColor2 = (event) => {
     item=1;
     if(regex.test(event.target.value)){
-      this.setState({
-        color2:event.target.value
-      })
+      this.props.colorReducer2(event.target.value);
     }
     else{
-      this.setState({
-        color2:'',
-      })
+      this.props.colorReducer2('');
     }
   }
 
@@ -105,13 +92,8 @@ class AddContainer extends React.Component{
       color3=color3.concat((Math.floor((parseInt(color1[i],16)+parseInt(color2[i],16))/2)).toString(16));
       i++;
     }
-    // this.setState({
-    //   color3:color3
-    // })
-    console.log('result color before ',this.resultColor);
-    this.setColor(color3);
-    console.log('result color after ',this.resultColor);
 
+    this.setColor(color3);
     return color3;
   }
 
@@ -122,7 +104,7 @@ class AddContainer extends React.Component{
   render(){
     
 
-    if(!this.state.color1 && !this.state.color2 && !item){
+    if(!this.props.color1 && !this.props.color2 && !item){
       return(
              <div className='loading swatch'>Loading....</div>
       )
@@ -140,13 +122,10 @@ class AddContainer extends React.Component{
           >
               Add Swatch
           </button>
-          <SwatchList color1={this.state.color1} color2={this.state.color2} add={this.add}/>
-          {
-            console.log('color 3 validation',regex.test(this.resultColor),'color 3',this.resultColor)
-          }
+          <SwatchList color1={this.props.color1} color2={this.props.color2} add={this.add}/>
         </div>
       )
     }
   }
 }
-export default connect(mapStateToProps)(AddContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AddContainer);
